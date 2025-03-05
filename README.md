@@ -32,7 +32,7 @@ Explicit state management via .tfstate files (local or remote, like in S3).
 State files track the exact infrastructure and support features like drift detection, detailed diffs, and targeted changes.
 More manual care required to handle state files safely (locking, backups, etc.).   
 
-In what scenarios would you recommend using Serverless Framework over Terraform, and vice versa?   
+Q: In what scenarios would you recommend using Serverless Framework over Terraform, and vice versa?   
 ✅ Serverless Framework over Terraform when:   
    
 Your app is entirely serverless (Lambda, DynamoDB, API Gateway).   
@@ -42,7 +42,15 @@ Your infrastructure needs are tightly coupled with the serverless application li
    
 You manage complex infrastructure, including networking, databases, security groups, Kubernetes, and more.
 You need multi-cloud support or infrastructure consistency across providers.
-You want robust state management and detailed control over infrastructure changes   
+You want robust state management and detailed control over infrastructure changes.   
+
+Q: Are there scenarios where using both together might be beneficial?   
+Yes! Combining them is common in larger systems. For example:   
+
+Use Terraform to provision foundational infrastructure (VPCs, databases, queues, IAM roles, etc.).   
+Use Serverless Framework to deploy the application code (Lambdas, APIs) that runs on top of that infrastructure.   
+This hybrid approach lets each tool focus on its strengths: Terraform handles the "platform," and Serverless handles the "app."   
+
 
 
 
